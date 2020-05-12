@@ -10,4 +10,5 @@ php composer.phar install
 php /var/www/html/vendor/silverstripe/framework/cli-script.php dev/build
 /var/www/html/vendor/bin/sake dev/tasks/HydrateCustomConfig
 /var/www/html/vendor/bin/sake dev/tasks/SetupSDLTDataTask
+chown -R www-data public
 docker-php-entrypoint php-fpm
