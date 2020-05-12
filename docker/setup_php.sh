@@ -1,6 +1,6 @@
 #!/bin/bash
 apt-get update
-apt-get -y install libicu-dev wget
+apt-get -y install libicu-dev wget git zip unzip
 docker-php-ext-install intl 
 docker-php-ext-install mysqli
 docker-php-ext-install pdo_mysql  
