@@ -4,7 +4,8 @@ apt-get -y install libicu-dev wget
 docker-php-ext-install intl 
 docker-php-ext-install mysqli
 docker-php-ext-install pdo_mysql  
-sh /var/www/html/docker/install_composer.sh
+chmod +x /var/www/html/docker/install_composer.sh
+/var/www/html/docker/install_composer.sh
 php composer.phar install
 php /var/www/html/vendor/silverstripe/framework/cli-script.php dev/build
 /var/www/html/vendor/bin/sake dev/tasks/HydrateCustomConfig
