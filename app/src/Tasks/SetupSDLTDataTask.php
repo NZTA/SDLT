@@ -31,12 +31,14 @@ use SilverStripe\Dev\BuildTask;
 use SilverStripe\ORM\DB;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\ValidationException;
+use NZTA\SDLT\Traits\SDLTAdminCommon;
 
 /**
  * SetupSDLTDataTask
  */
 class SetupSDLTDataTask extends BuildTask
 {
+		use SDLTAdminCommon;
     /**
      * Segment of this task
      * @var string
@@ -133,6 +135,18 @@ class SetupSDLTDataTask extends BuildTask
         'NZTA\SDLT\Model\SecurityComponent' => [],
         'NZTA\SDLT\Model\SecurityControl' => [],
         'NZTA\SDLT\Model\Task' => [],
+    ];
+    
+    private $json_questionnaire_paths = [
+    	'Proof of Concept Pillar' => 'app/populate/json/pillar_poc.json',
+        'Solution Pillar' => 'app/populate/json/pillar_solution.json',
+        'SaaS Pillar' => 'app/populate/json/pillar_saas.json',
+        'Feature Release Pillar' => 'app/populate/json/pillar_feature.json'
+          	
+    ];
+
+    private $json_task_paths = [
+        'Task: Web Security Configuration' => 'app/populate/json/task_web_security_configuration.json'
     ];
 
     /**
@@ -257,6 +271,41 @@ class SetupSDLTDataTask extends BuildTask
                 )
             );
         }
+        
+        /**
+         * Now that the CSV Import has been done, we'll import
+         * the JSON files that will handle the relationship betweens
+         * between Questionnaires and tasks
+         */
+        foreach ($this->json_questionnaire_paths as $key => $value) {
+        	printf("Importing JSON Pillar '$key' from $value\n");        	
+        	
+        	$string = file_get_contents($value);
+        	$incomingJson = $incomingJson = (json_decode($string));
+        	Questionnaire::create_record_from_json($incomingJson, true);
+        }
+        
+        /**
+         * Import Tasks
+         */
+        foreach ($this->json_task_paths as $key => $value) {
+        	printf("Importing JSON Task '$key' from $value\n");        	
+        	
+        	$string = file_get_contents($value);
+        	$incomingJson = $incomingJson = (json_decode($string));
+        	Task::create_record_from_json($incomingJson, true);
+        }
+
+        /**
+         * Next we'll import security controls
+         */
+//         foreach ($this->paths as $key => $value) {
+//         	printf("Importing JSON Questionnaire '$key' from $value\n");
+        	
+//         	$string = file_get_contents($value);
+//         	$incomingJson = $incomingJson = (json_decode($string));
+//         	Questionnaire::create_record_from_json($incomingJson, true);
+//         }
     }
 
      /**
