@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "18e9e455b167c50e9544b3fc757403a4",
+    "content-hash": "7c0d6ccab4830eb0a0a734f48d44ab6b",
     "packages": [
         {
             "name": "asyncphp/doorman",
@@ -1184,16 +1184,16 @@
         },
         {
             "name": "nzta/sdlt-framework",
-            "version": "4.1.0",
+            "version": "4.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NZTA/sdlt-framework.git",
-                "reference": "3ab9c548590156f36b0fac43f9b43b7f9bf8d88c"
+                "reference": "063f7c667e8a62c555bb7e51dc3242b96480d94b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NZTA/sdlt-framework/zipball/3ab9c548590156f36b0fac43f9b43b7f9bf8d88c",
-                "reference": "3ab9c548590156f36b0fac43f9b43b7f9bf8d88c",
+                "url": "https://api.github.com/repos/NZTA/sdlt-framework/zipball/063f7c667e8a62c555bb7e51dc3242b96480d94b",
+                "reference": "063f7c667e8a62c555bb7e51dc3242b96480d94b",
                 "shasum": ""
             },
             "require": {
@@ -1234,7 +1234,7 @@
                 "BSD-3-Clause"
             ],
             "description": "NZTA Security Development Lifecycle Tool Framework",
-            "time": "2022-07-12T03:41:27+00:00"
+            "time": "2022-07-28T03:40:50+00:00"
         },
         {
             "name": "nzta/sdlt-theme",
