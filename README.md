@@ -1,7 +1,9 @@
 # NZTA Security Development Lifecycle Tool
 
-This repository is no longer actively maintained or supported.  
-Code and examples are provided as-is and may be outdated. Use at your own risk.
+This repository is no longer actively maintained or supported.
+Issues and pull requests will not be monitored or responded to.
+  
+Code and examples are provided as-is and may be outdated. 
 
 The SDLT is Web Application that supports, and expedites I.T. security professionals as part of the change approval process within their organisation.
 
